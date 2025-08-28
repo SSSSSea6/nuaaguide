@@ -8,8 +8,8 @@
 <div id="pagination"></div>
 
 <script>
-  const ALGOLIA_APP_ID = "SMA85IWFQN"; // 替换为你自己的
-  const ALGOLIA_SEARCH_KEY = "8a00c461ba4a78c16cb8862108e7e83a"; // 替换为你自己的
+  const ALGOLIA_APP_ID = "SMA85IWFQN"; // 替换为你的 APP ID
+  const ALGOLIA_SEARCH_KEY = "8a00c461ba4a78c16cb8862108e7e83a"; // 替换为你的 Search-only Key
   const indexName = "nuaaguide";
 
   const searchClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY);
@@ -24,13 +24,17 @@
     instantsearch.widgets.hits({
       container: '#hits',
       templates: {
-        item: `<a href=" "><h3>{{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</h3></a >
-               <p>{{` + `excerpt}}</p >
-               <a href="{{` + `file_url}}" target="_blank">下载</a >`
+        item: '<a href=" ' + 'url}}"><h3>{{' + '#helpers.highlight}}{ "attribute": "title" }{{' + '/helpers.highlight}}</h3></a >' +
+              '<p>{{' + 'excerpt}}</p >' +
+              '<a href="{{' + 'file_url}}" target="_blank">下载</a >'
       }
     }),
     instantsearch.widgets.pagination({ container: '#pagination' })
   ]);
+
+  search.start();
+</script>
+
 
   search.start();
 </script>
