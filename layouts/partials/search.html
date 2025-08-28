@@ -1,0 +1,37 @@
+<!-- layouts/partials/search.html -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/satellite-min.css" />
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
+
+<div id="searchbox"></div>
+<div id="hits"></div>
+<div id="pagination"></div>
+
+<script>
+  // 请把下面两个字符串替换为你在 Algolia 控制台看到的值
+  const ALGOLIA_APP_ID = "ALGOLIA_APP_ID";
+  const ALGOLIA_SEARCH_KEY = "ALGOLIA_SEARCH_ONLY_KEY";
+  const indexName = "nuaaguide";
+
+  const searchClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY);
+
+  const search = instantsearch({
+    indexName,
+    searchClient,
+  });
+
+  search.addWidgets([
+    instantsearch.widgets.searchBox({ container: '#searchbox' }),
+    instantsearch.widgets.hits({
+      container: '#hits',
+      templates: {
+        item: `<a href=" "><h3>{{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</h3></a >
+               <p>{{excerpt}}</p >
+               <a href="{{file_url}}" target="_blank">下载</a >`
+      }
+    }),
+    instantsearch.widgets.pagination({ container: '#pagination' })
+  ]);
+
+  search.start();
+</script>
