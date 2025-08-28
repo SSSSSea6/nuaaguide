@@ -22,10 +22,7 @@ jobs:
           extended: true   # ✅ 启用 Extended
 
       - name: Build site
-        run: |
-          hugo mod get      # 下载模块
-          hugo mod tidy     # 清理/验证模块依赖
-          hugo --minify     # 构建站点
+        run: hugo --minify
 
       - name: Install npm deps (for algolia)
         run: npm ci
