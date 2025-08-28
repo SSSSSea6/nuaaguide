@@ -1,6 +1,3 @@
-[module]
-  [[module.imports]]
-    path = "github.com/theNewDynamic/gohugo-theme-ananke"
 baseURL = "https://nuaaguide.online/"
 languageCode = "zh-cn"
 title = "NUAA Guide 校园指北"
