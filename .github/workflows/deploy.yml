@@ -21,7 +21,7 @@ jobs:
           hugo-version: '0.117.0'
 
       - name: Build site
-        run: hugo --minify
+        run: hugo mod get && hugo --minify
 
       - name: Install npm deps (for algolia)
         run: npm ci
