@@ -1,0 +1,17 @@
+{{- /* layouts/_default/list.json */ -}}
+[
+{{- $pages := where .Site.RegularPages "Params.published" true -}}
+{{- range $i, $p := $pages -}}
+  {{- if $i }},{{ end -}}
+  {
+    "objectID": {{ $p.File.Path | jsonify }},
+    "title": {{ $p.Title | jsonify }},
+    "excerpt": {{ $p.Summary | plainify | jsonify }},
+    "url": {{ $p.RelPermalink | jsonify }},
+    "tags": {{ $p.Params.tags | jsonify }},
+    "course": {{ $p.Params.course | jsonify }},
+    "year": {{ $p.Params.year | jsonify }},
+    "file_url": {{ $p.Params.file_url | jsonify }}
+  }
+{{- end -}}
+]
