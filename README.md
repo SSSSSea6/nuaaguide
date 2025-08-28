@@ -1,4 +1,4 @@
-# NUAA Guide (校园指北)
+# NUAA Guide (南航校园指北)
 
 **快速开始（零基础）**
 1. 在仓库 Settings -> Secrets and variables -> Actions 新增：
