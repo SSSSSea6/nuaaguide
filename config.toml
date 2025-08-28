@@ -1,0 +1,11 @@
+baseURL = "https://nuaaguide.online/"
+languageCode = "zh-cn"
+title = "NUAA Guide 校园指北"
+theme = "ananke"
+enableRobotsTXT = true
+publishDir = "public"
+
+[params]
+  description = "南京航空航天大学学习资料汇集"
+  algolia_index_name = "nuaaguide"
+  # algolia_search_key (search-only key) 请在下面的 layouts/partials/search.html 中替换为你的 search-only key
