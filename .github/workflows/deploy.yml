@@ -19,10 +19,13 @@ jobs:
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.117.0'
+          extended: true
 
       - name: Build site
-        run: hugo mod get && hugo --minify
-
+        run: |
+    hugo mod get
+    hugo mod tidy
+    hugo --minify
       - name: Install npm deps (for algolia)
         run: npm ci
 
